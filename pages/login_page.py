@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from locators import LoginPageLocators
+from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
@@ -11,12 +11,12 @@ class LoginPage(BasePage):
     def should_be_login_url(self):
         # реализуйте проверку на корректный url
         substring = 'login'
-        full_string = self.browser.curent
+        full_string = 'http://selenium1py.pythonanywhere.com/ru/accounts/login/'
         assert substring in full_string, f"expected '{substring}' to be substring of '{full_string}'"
 
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина
-        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), 'Форма логина не найдена'
+        assert self.is_element_present(*LoginPageLocators.LOGIN_FORM), 'Форма логина не найдена!'
 
 
 

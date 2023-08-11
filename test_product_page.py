@@ -1,11 +1,16 @@
 import time
 
+import pytest
+
 from pages.base_page import BasePage
 from pages.product_page import ProductPage
 
 
-def test_guest_can_add_product_to_basket(browser):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=newYear2019'
+@pytest.mark.parametrize('link',
+                         [f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{i}" for i in
+                          range(10)])
+@pytest.mark.xfail(link='http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7', reason='Ошибка:Название товара не соотвествует наименованию товара в сообщении об успешном добавлении товара в корзину')
+def test_guest_can_add_product_to_basket(browser, link):
     product_page = ProductPage(browser, link)
     product_page.open()
     product_page.add_product_to_basket()

@@ -19,3 +19,7 @@ class ProductPage(BasePage):
         price_product_main = self.browser.find_element(*ProductPageLocators.PRICE_PRODUCT_MAIN)
         price_in_message = self.browser.find_element(*ProductPageLocators.PRICE_IN_MESSAGE)
         assert price_product_main.text == price_in_message.text, 'Цена товара не соотвествует цене товара в сообщении'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"

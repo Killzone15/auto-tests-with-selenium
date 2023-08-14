@@ -13,7 +13,7 @@ from pages.product_page import ProductPage
          if i != 7
          else pytest.param(
              f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{i}",
-             marks=pytest.mark.xfail(reason='Ошибка: Название товара не соответствует наименованию товара '
+             marks=pytest.mark.xfail(reason='Название товара не соответствует наименованию товара '
                                             'в сообщении об успешном добавлении товара в корзину')
          ))
         for i in range(10)

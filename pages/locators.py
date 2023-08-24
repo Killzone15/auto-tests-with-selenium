@@ -26,4 +26,7 @@ class ProductPageLocators:
 
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, '#messages > div:nth-child(1) > .alertinner')
 
-# class BasketPageLocators:
+
+class BasketPageLocators:
+    BASKET_EMPTY = (By.CSS_SELECTOR, '#content_inner > p')
+    BASKET_NOT_EMPTY = (By.CSS_SELECTOR, '#basket_formset')

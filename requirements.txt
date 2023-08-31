@@ -1,2 +1,3 @@
 pytest==7.4.0
 selenium==4.10.0
+chromedriver-py==116.0.5845.96

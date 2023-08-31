@@ -1,6 +1,8 @@
 from selenium.webdriver.chrome.options import Options
 import pytest
 from selenium import webdriver
+from chromedriver_py import binary_path
+from selenium.webdriver.chrome.service import Service
 
 
 def pytest_addoption(parser):
@@ -17,7 +19,8 @@ def language(request):
 def browser(language):
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': language})
-    browser = webdriver.Chrome(options=options)
+    service = Service(executable_path=binary_path)
+    browser = webdriver.Chrome(service=service, options=options)
     browser.implicitly_wait(10)
     yield browser
     browser.quit()
